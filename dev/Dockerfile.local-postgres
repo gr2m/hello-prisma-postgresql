@@ -2,9 +2,9 @@
 FROM postgres:13
 
 # Set environment variables
-ENV POSTGRES_USER doadmin
-ENV POSTGRES_PASSWORD UCN2zrH2WGxKck7tT2JG4MY6wbHkeX9s
-ENV POSTGRES_DB defaultdb
+ENV POSTGRES_USER admin
+ENV POSTGRES_PASSWORD secret
+ENV POSTGRES_DB localdb
 
 # SSL config
 ENV SSL_CERT_FILE=/var/lib/postgresql/server.crt

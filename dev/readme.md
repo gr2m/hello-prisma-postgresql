@@ -17,7 +17,7 @@ Please note that this generates self-signed certificates which should only be us
 ### 2. Build the Docker image
 
 ```source-shell
-docker build -t my_postgres_image -f Dockerfile.local-postgres .
+docker build -t hello_prisma_postgresql_image -f Dockerfile.local-postgres .
 ```
 
 This command will build the Docker image using the Dockerfile in the current directory. The previously generated SSL certificates will need to be in the same directory as the Dockerfile.
@@ -25,10 +25,10 @@ This command will build the Docker image using the Dockerfile in the current dir
 ### 3. Run the Docker container
 
 ```source-shell
-docker run --name my_postgres_container -p 25060:5432 -d my_postgres_image:latest
+docker run --name hello_prisma_postgresql_container -p 25060:5432 -d hello_prisma_postgresql_image:latest
 ```
 
-This command will start a new Docker container named my_postgres_container, mapping port 25060 on your local machine to port 5432 on the Docker container.
+This command will start a new Docker container named hello_prisma_postgresql_container, mapping port 25060 on your local machine to port 5432 on the Docker container.
 
 ## Credit
 

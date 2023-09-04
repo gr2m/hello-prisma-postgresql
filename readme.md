@@ -12,6 +12,12 @@ Then copy `.env.example` to `.env`, no further edits should be necessary for loc
 cp .env.example .env
 ```
 
+Then create the tables in the database
+
+```
+npx prisma migrate dev --name init
+```
+
 Then install dependencies
 
 ```
