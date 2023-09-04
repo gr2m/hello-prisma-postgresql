@@ -4,7 +4,24 @@ My Prisma test project, based on https://www.prisma.io/docs/getting-started/setu
 
 ## Local development
 
-See [dev/](dev/)
+See [dev/](dev/) to setup a local Postgress database.
+
+Then
+
+```
+npm install
+npm run prisma-studio
+```
+
+To see a browser UI for your postgress databse.
+
+You can run the different `*.ts` scripts to experiment
+
+```
+npm run add-user
+npm run list-users
+npm run publish-post
+```
 
 ## License
 
