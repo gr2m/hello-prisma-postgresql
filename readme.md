@@ -6,14 +6,23 @@ My Prisma test project, based on https://www.prisma.io/docs/getting-started/setu
 
 See [dev/](dev/) to setup a local Postgress database.
 
-Then
+Then copy `.env.example` to `.env`, no further edits should be necessary for local development.
+
+```
+cp .env.example .env
+```
+
+Then install dependencies
 
 ```
 npm install
-npm run prisma-studio
 ```
 
-To see a browser UI for your postgress databse.
+And start Prisma Studio, a browser UI for your postgress databse.
+
+```
+npm run prisma-studio
+```
 
 You can run the different `*.ts` scripts to experiment
 
