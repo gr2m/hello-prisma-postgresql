@@ -1,32 +1,29 @@
--- CreateTable
 CREATE TABLE "Post" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL,
-    "title" TEXT NOT NULL,
-    "content" TEXT,
-    "published" BOOLEAN NOT NULL DEFAULT false,
-    "authorId" INTEGER NOT NULL,
-    CONSTRAINT "Post_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+  "id" SERIAL,
+  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatedAt" TIMESTAMP(3) NOT NULL,
+  "title" VARCHAR(255) NOT NULL,
+  "content" TEXT,
+  "published" BOOLEAN NOT NULL DEFAULT false,
+  "authorId" INTEGER NOT NULL,
+  PRIMARY KEY ("id")
 );
 
--- CreateTable
 CREATE TABLE "Profile" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "bio" TEXT,
-    "userId" INTEGER NOT NULL,
-    CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+  "id" SERIAL,
+  "bio" TEXT,
+  "userId" INTEGER NOT NULL,
+  PRIMARY KEY ("id")
 );
 
--- CreateTable
 CREATE TABLE "User" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "email" TEXT NOT NULL,
-    "name" TEXT
+  "id" SERIAL,
+  "email" TEXT NOT NULL,
+  "name" TEXT,
+  PRIMARY KEY ("id")
 );
 
--- CreateIndex
-CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+CREATE UNIQUE INDEX "Profile.userId_unique" ON "Profile"("userId");
+CREATE UNIQUE INDEX "User.email_unique" ON "User"("email");
+ALTER TABLE "Post" ADD FOREIGN KEY("authorId")REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Profile" ADD FOREIGN KEY("userId")REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
